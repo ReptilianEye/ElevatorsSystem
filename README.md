@@ -1,10 +1,10 @@
 # Elevators System
 
-The system is built with Java and Spring Boot for the server and Vite and Chakra UI for the client. Client sends POST requests with current state of the elevators and the server responds with the next state of the elevators.
+The system is built with Java and Spring Boot for the server and Vite and Chakra UI for the client. The client sends POST requests with the current state of the elevators and the server responds with the next state of the elevators.
 
 ## Aims of the Project
 
-The project aimed to develop a complete full-stack application, containerize it, and deploy it to the cloud. Additionally, it served as an opportunity to gain knowledge and experience with Spring Boot, Vite, Docker and GCP.
+The project aimed to develop a complete full-stack application, containerize it, and deploy it to the cloud. Additionally, it served as an opportunity to gain knowledge and experience with Spring Boot, Vite, Docker, and GCP.
 
 ## About the Algorithm
 
@@ -14,13 +14,13 @@ The most interesting part of the project is the algorithm that decides the next 
 
 The system I designed assumes that picking up and dropping off passengers is done instantly. That means that when two elevators would move from floor A to B and the first one would never open the door to let passengers they would both arrive at the same time.
 
-Also I assumed that the elevators have infinite capacity and that the system is not concerned with the number of passengers in the elevator.
+Also, I assumed that the elevators have infinite capacity and that the system is not concerned with the number of passengers in the elevator.
 
-Lastly, I assumed that the system somehow knows how many passengers are waiting on each floor. (it has some cool computer vision system 😊)
+Lastly, I assumed that the system somehow knows how many passengers are waiting on each floor. (it has a cool computer vision system 😊)
 
 ### Algorithm
 
-The algorithm goes at follows:
+The algorithm goes as follows:
 
 1. If there are passengers inside the elevator, it will go to the farthest requested floor in the direction it is currently going. I will allow entering the elevator if the requested floor is in the same direction as the elevator is currently going.
 2. If there are no passengers inside the elevator, it will look for critical floors (floors where passengers are waiting) and go to the closest one. (Critical floors are floors where more than 5 passengers are waiting) TODO: make this configurable
@@ -33,7 +33,7 @@ The algorithm goes at follows:
 - Chakra UI
 - Docker
 - GCP (Cloud Run serverless platform)
-- Github Actions (CI/CD)
+- GitHub Actions (CI/CD)
 
 ## Project Structure
 
@@ -41,7 +41,7 @@ The project is split into two parts:
 
 - Server: The server is a REST API that handles requests to the elevator system. It's built with Spring Boot.
 - Client: The client is a simple web interface that allows users to interact with the elevator system. It's built with [Vite](https://vitejs.dev/) and [Chakra UI](https://chakra-ui.com/). You can find the client code [here](/ui-vite-app).
-  The infrastructure is tailored for seamless integration with GCP Cloud Run serverless platform. On each 'next step' request, client sends current state of the elevators to the server and the server responds with the next state.
+  The infrastructure is tailored for seamless integration with the GCP Cloud Run serverless platform. On each 'next step' request, a client sends the current state of the elevators to the server and the server responds with the next state.
 
 ## Building and Running the Project Locally
 
@@ -73,15 +73,15 @@ Then, to run the project with Docker, use the following command:
 docker run -p 8080:8080 elevators
 ```
 
-App will be available at [http://localhost:8080](http://localhost:8080).
+The app will be available at [http://localhost:8080](http://localhost:8080).
 
 The latest image is also available on [Github Packages](https://github.com/ReptilianEye/ElevatorsSystem/pkgs/container/elevators-ghcr).
 
 ## Deployment
 
-The project is deployed to GCP using Cloud Run and Cloud Build. The deployment is automated using a Github Actions [(details)](.github/workflows/google-cloudrun-source.yml).
+The project is deployed to GCP using Cloud Run and Cloud Build. The deployment is automated using GitHub Actions [(details)](.github/workflows/google-cloudrun-source.yml).
 
-The application is available at [Elevators System](https://elevatorssystem-uk6zzsnjeq-ey.a.run.app).
+The application is a̶v̶a̶i̶l̶a̶b̶l̶e̶ no longer available at [Elevators System](https://elevatorssystem-uk6zzsnjeq-ey.a.run.app).
 
 ## Future Improvements
 
